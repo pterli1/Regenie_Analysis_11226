@@ -1,0 +1,98 @@
+{
+  "local_env": "local",
+  "meta_analysis_config": {
+    "location": "local",
+    "meta_workflow": "applet-xxxx",
+    "subset_workflow": "applet-xxxx",
+    "regenie_annotations": []
+  },
+  "cohorts": {
+    "ukb": {
+      "workflows": {
+        "regenie_step1": "applet-J6y0p70JVJzv1jqFxqfzJxVk",
+        "regenie_step2_singlevar": "applet-J6y0pJ0JVJzfk9bQzb98b5PF",
+        "regenie_step2_aggregate": "applet-J6yXqFQJVJzZzkKqj580JXpx",
+        "conditioning_singlevar": "applet-J6yXf30JVJzyzpgxYfPV1qvQ",
+        "conditioning_aggregate": "applet-J6yXbzjJVJzZ1x5k2GBV5k7g"
+      },
+      "pheno_file": "file-J6j5fbQJVJzY985F1KzP5q9Q",
+      "cov_file": "file-J6j5Z0jJVJzQ270P4gvYB5yj",
+      "cond_file": "file-J6Z3f00JVJzxYk1J5QpQ4Kxj",
+      "strata": [
+        "eur",
+        "sas",
+        "afr"
+      ],
+      "cat_vars": "centre,sequencing_centre",
+      "step1_directory": "regenie_step1_output",
+      "root_results_directory": "WGS_Analysis",
+      "pfile_template": "500k_wgs_pgens/dragenml_genoqc_pgens/chr{chr}_trimmed_merged_nofail",
+      "step1_input_template": "regenie_step1_input/regenie_step1_{stratum}",
+      "regenie_annotations": [],
+      "cohort_sizes": {
+        "eur": 244503,
+        "sas": 4795,
+        "afr": 4605
+      }
+    }
+  },
+  "pheno_names": [
+    "endometriosis_multi_ancestry_v1"
+  ],
+  "trait_type": "Binary",
+  "trait_transform": "RAW",
+  "chromosomes_to_run": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+    "21",
+    "22",
+    "X"
+  ],
+  "chromosomes_no_pgs": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+    "21",
+    "22",
+    "X"
+  ],
+  "local_run_path": "/home/jupyter/looping2/endometriosis_aggs_v1_ukbb",
+  "run_prefix": "endometriosis_multi_ancestry_v1",
+  "cond_suffix": "run1",
+  "pgs_prefix": "XX_SCORE_CHR"
+}

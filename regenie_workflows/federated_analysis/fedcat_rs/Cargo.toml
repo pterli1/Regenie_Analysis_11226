@@ -1,0 +1,22 @@
+[package]
+name = "fedcat_rs"
+version = "0.1.7"
+edition = "2021"
+description = "Rust-accelerated numerical kernels for fedcat stats (ACAT, Z→LOG10P, weights)"
+
+[lib]
+name = "fedcat_rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.24", features = ["extension-module", "abi3-py310"] }
+numpy = "0.24"
+statrs = "0.18"
+parquet = { version = "58", default-features = false, features = ["arrow", "snap", "zstd"] }
+arrow-array = "58"
+arrow-schema = "58"
+csv = "1"
+flate2 = "1"
+zstd = "0.13"
+rayon = "1"
+polars = { version = "0.53.0", features = ["lazy", "csv", "parquet", "dtype-struct", "decompress", "merge_sorted", "is_in", "concat_str", "strings"] }

@@ -1,0 +1,93 @@
+/* Tighter spacing than the theme's defaults, which are generous for reference pages */
+
+/* Body text */
+.md-content__inner {
+  line-height: 1.6;
+}
+.md-typeset p,
+.md-typeset ul,
+.md-typeset ol {
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+}
+.md-typeset li {
+  margin-bottom: 0.2em;
+}
+
+/* Headings */
+.md-main__inner {
+  margin-top: 1rem;
+}
+.md-typeset h1 {
+  margin-bottom: 0.8em;
+}
+.md-typeset h2 {
+  margin-top: 1.4em;
+  margin-bottom: 0.5em;
+}
+.md-typeset h3 {
+  margin-top: 1.2em;
+  margin-bottom: 0.4em;
+}
+
+/* Tables */
+.md-typeset table:not([class]) th,
+.md-typeset table:not([class]) td {
+  padding: 0.45em 0.9em;
+  line-height: 1.5;
+}
+/* Keep field and option names in a table's first column on one line */
+.md-typeset table:not([class]) td:first-child code {
+  white-space: nowrap;
+}
+
+/* Definition lists: options, config fields, troubleshooting */
+.md-typeset dl dt {
+  margin-top: 0.8em;
+}
+.md-typeset dd {
+  margin: 0.15em 0 0.4em 1.875em;
+}
+.md-typeset dd > p {
+  margin: 0.2em 0;
+}
+
+/* Navigation and table of contents */
+.md-nav__link {
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+/* An expandable entry (e.g. an API package) wraps its link and toggle in a container
+   that is itself a .md-nav__link: no padding of its own, and a toggle no taller than a link */
+.md-nav__link.md-nav__container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.md-nav__container > label.md-nav__link {
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+.md-sidebar {
+  padding-top: 1rem;
+}
+
+/* Admonitions */
+.md-typeset .admonition {
+  margin: 1em 0;
+}
+
+/* The logo is wide, so give it more room in the header */
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  height: 2rem;
+}
+
+/* Home page: the heading is the logo */
+.md-typeset img.fedcat-hero {
+  display: block;
+  max-width: 300px;
+  margin: 0 auto;
+}
+.md-typeset h1:has(> img.fedcat-hero) {
+  margin-bottom: 0;
+}

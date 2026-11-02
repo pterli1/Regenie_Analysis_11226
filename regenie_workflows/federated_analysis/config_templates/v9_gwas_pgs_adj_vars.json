@@ -1,0 +1,71 @@
+{
+  "local_env": "aou",
+  "meta_analysis_config": {
+    "location": "aou",
+    "meta_workflow": "meta_analysis_discovery_aou",
+    "subset_workflow": "step0_subsetting_only_aou"
+  },
+  "cohorts": {
+    "aou": {
+      "workflows": {
+        "regenie_step1": "regenie_step1_scatter_aou",
+        "regenie_step2_singlevar": "regenie_step2_single_variants_aou",
+        "regenie_step2_aggregate": "regenie_step2_aggregates_aou",
+        "conditioning_singlevar": "regenie_conditioning_singles_aou",
+        "conditioning_aggregate": "regenie_conditioning_agg_aou"
+      },
+      "pheno_file": "gs://workspace-bucket/path/to/file/pheno_file.tsv.gz",
+      "cov_file": "gs://pgen-bucket-wb-cordial-banana-2765/auxiliary_data/filtered_samples_basic_covs.tsv.gz",
+      "cond_file": "gs://workspace-bucket/path/to/file/list_one_line_per_variant",
+      "strata": [
+        "afr",
+        "amr",
+        "eas",
+        "eur",
+        "mid",
+        "sas"
+      ],
+      "cat_vars": "seq_center,sequencer_type",
+      "step1_directory": "regenie_step1_output",
+      "root_results_directory": "wgs_analysis",
+      "pfile_template": "gs://pgen-bucket-wb-cordial-banana-2765/wgs_v9_pgens_genoqc/chr{chr}_genoqc_trimmed_merged",
+      "step1_input_template": "gs://pgen-bucket-wb-cordial-banana-2765/regenie_step1_input/{stratum}_step1_release9",
+      "cohort_sizes": {
+        "afr": 101000,
+        "amr": 108000,
+        "eas": 16000,
+        "eur": 303000,
+        "mid": 2100,
+        "sas": 6200
+      }
+    }
+  },
+  "pheno_names": [
+    "pheno1",
+    "pheno2"
+  ],
+  "trait_type": "Binary",
+  "trait_transform": "RAW",
+  "chromosomes_to_run": [
+    "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "X"
+  ],
+  "local_run_path": "/home/jupyter/fedcat_runs/pheno_group1",
+  "run_prefix": "phenogroup1",
+  "step1_run_prefix": "phenogroup1",
+  "singles_mac_threshold": 11,
+  "pgs_prefix": "PHENO_SCORE_CHR",
+  "chromosomes_no_pgs": [
+    "X"
+  ],
+  "exclude_covars_dict": {
+    "1": [
+      "covar_to_exclude_on_chr1",
+      "these_covars_are_excluded_in_addition_to_pgs_covars",
+      "covar3"
+    ],
+    "6": [
+      "allows_abitrary_covars_excluded_per_chromosome",
+      "covar5"
+    ]
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "local_env": "aou",
+  "meta_analysis_config": {
+    "location": "aou",
+    "meta_workflow": "meta_analysis_discovery_aou.wdl",
+    "subset_workflow": "step0_subsetting_only_aou.wdl"
+  },
+  "cohorts": {
+    "aou": {
+      "workflows": {
+        "regenie_step1": "regenie_step1_scatter_aou.wdl",
+        "regenie_step2_singlevar": "regenie_step2_single_variants_aou.wdl",
+        "regenie_step2_aggregate": "regenie_step2_aggregates_aou.wdl",
+        "conditioning_singlevar": "regenie_conditioning_singles_aou.wdl",
+        "conditioning_aggregate": "regenie_conditioning_agg_aou.wdl"
+      },
+      "pheno_file": "fc-secure-5a64669c-33a8-48bc-bd55-aa477d7aa313/MSK_AoU_phenos.pheno.gz",
+      "cov_file": "fc-secure-ab157c8b-aa91-4d13-b17f-8276c7b7fbcb/all_person_basic_covs_agesqd.tsv.gz",
+      "strata": [
+        "afr",
+        "amr",
+        "eas",
+        "eur",
+        "mid",
+        "sas"
+      ],
+      "cat_vars": "seq_center",
+      "step1_directory": "regenie_step1_output",
+      "root_results_directory": "wgs_analysis2/v2026.2",
+      "pfile_template": "wgs_v8_pgens_genoqc/chr{chr}_genoqc_trimmed_merged",
+      "step1_input_template": "regenie_step1_input/regenie_step1_{stratum}",
+      "regenie_annotations": [],
+      "cohort_sizes": {
+        "afr": 84000,
+        "amr": 79000,
+        "eas": 10000,
+        "eur": 234000,
+        "mid": 1500,
+        "sas": 5500
+      }
+    },
+    "ukb": {
+      "workflows": {
+        "regenie_step1": "applet-J6y0p70JVJzv1jqFxqfzJxVk",
+        "regenie_step2_singlevar": "applet-J6y0pJ0JVJzfk9bQzb98b5PF",
+        "regenie_step2_aggregate": "applet-J6yXqFQJVJzZzkKqj580JXpx",
+        "conditioning_singlevar": "applet-J6yXf30JVJzyzpgxYfPV1qvQ",
+        "conditioning_aggregate": "applet-J6yXbzjJVJzZ1x5k2GBV5k7g"
+      },
+      "pheno_file": "file-J5KXZVjJj63XX0Jy9JvY4Qv4",
+      "cov_file": "file-J68p5Y0JVJzXJJBkpK1PkXb4",
+      "strata": [
+        "afr",
+        "eur",
+        "sas"
+      ],
+      "cat_vars": "centre,sequencing_centre",
+      "step1_directory": "regenie_step1_output",
+      "root_results_directory": "wgs_analysis2/v2026.2",
+      "pfile_template": "500k_wgs_pgens/dragenml_genoqc_pgens/chr{chr}_trimmed_merged_nofail",
+      "step1_input_template": "regenie_step1_input/regenie_step1_{stratum}",
+      "regenie_annotations": [],
+      "cohort_sizes": {
+        "afr": 10000,
+        "eur": 460000,
+        "sas": 10000
+      }
+    }
+  },
+  "pheno_names": [
+    "FS",
+    "DUPS",
+    "CTS",
+    "OA",
+    "OP_tier1"
+  ],
+  "trait_type": "Binary",
+  "trait_transform": "RAW",
+  "chromosomes_to_run": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+    "21",
+    "22",
+    "X"
+  ],
+  "chromosomes_no_pgs": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+    "21",
+    "22",
+    "X"
+  ],
+  "local_run_path": "/home/jupyter/looping/msk",
+  "run_prefix": "msk",
+  "cond_suffix": "run1",
+  "pgs_prefix": "unused",
+  "meta_regenie_annotations": []
+}

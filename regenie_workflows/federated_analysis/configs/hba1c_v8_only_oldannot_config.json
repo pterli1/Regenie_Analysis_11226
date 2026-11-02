@@ -1,0 +1,135 @@
+{
+  "local_env": "aou",
+  "meta_analysis_config": {
+    "location": "aou",
+    "meta_workflow": "meta_analysis_discovery_aou.wdl",
+    "subset_workflow": "step0_subsetting_only_aou.wdl",
+    "regenie_annotations": [
+      {
+        "name": "regulatory",
+        "mask_file": "gs://fc-secure-ba05a770-2a2e-4f6c-a34b-c7072ec4a469/wgs_annotations/v2024/masks_1_chr_{chr}_nodot.zst",
+        "annot_file": "gs://fc-secure-ba05a770-2a2e-4f6c-a34b-c7072ec4a469/wgs_annotations/v2024/annotations_regulatory_chr{chr}.zst",
+        "setlist_file": "gs://fc-secure-ba05a770-2a2e-4f6c-a34b-c7072ec4a469/wgs_annotations/v2024/set_list_chr{chr}.txt.zst"
+      },
+      {
+        "name": "coding_proximal",
+        "mask_file": "gs://fc-secure-ba05a770-2a2e-4f6c-a34b-c7072ec4a469/wgs_annotations/v2024/masks_2_chr_{chr}_nodot.zst",
+        "annot_file": "gs://fc-secure-ba05a770-2a2e-4f6c-a34b-c7072ec4a469/wgs_annotations/v2024/annotations_coding_proximal_chr{chr}.zst",
+        "setlist_file": "gs://fc-secure-ba05a770-2a2e-4f6c-a34b-c7072ec4a469/wgs_annotations/v2024/set_list_chr{chr}.txt.zst"
+      },
+      {
+        "name": "utr",
+        "mask_file": "gs://fc-secure-ba05a770-2a2e-4f6c-a34b-c7072ec4a469/wgs_annotations/v2024/masks_3_chr_{chr}_nodot.zst",
+        "annot_file": "gs://fc-secure-ba05a770-2a2e-4f6c-a34b-c7072ec4a469/wgs_annotations/v2024/annotations_utr_chr{chr}.zst",
+        "setlist_file": "gs://fc-secure-ba05a770-2a2e-4f6c-a34b-c7072ec4a469/wgs_annotations/v2024/set_list_chr{chr}.txt.zst"
+      }
+    ]
+  },
+  "cohorts": {
+    "aou": {
+      "workflows": {
+        "regenie_step1": "regenie_step1_scatter_aou.wdl",
+        "regenie_step2_singlevar": "regenie_step2_single_variants_aou.wdl",
+        "regenie_step2_aggregate": "regenie_step2_aggregates_aou.wdl",
+        "conditioning_singlevar": "regenie_conditioning_singles_aou.wdl",
+        "conditioning_aggregate": "regenie_conditioning_agg_aou.wdl"
+      },
+      "pheno_file": "gs://fc-secure-4f1be347-e466-4ede-abc8-759946c15163/hba1c_t1d/v8_only_hba1c_pheno_for_regenie.gz",
+      "cov_file": "gs://fc-secure-4f1be347-e466-4ede-abc8-759946c15163/hba1c_t1d/v8_only_hba1c_covs_for_regenie.gz",
+      "strata": [
+        "afr",
+        "amr",
+        "eur"
+      ],
+      "cat_vars": "seq_center",
+      "step1_directory": "regenie_step1_output",
+      "root_results_directory": "wgs_analysis2/v2024",
+      "pfile_template": "gs://fc-secure-ba05a770-2a2e-4f6c-a34b-c7072ec4a469/wgs_v8_pgens_genoqc/chr{chr}_genoqc_trimmed_merged",
+      "step1_input_template": "gs://fc-secure-ba05a770-2a2e-4f6c-a34b-c7072ec4a469/regenie_step1_input/{stratum}_step1_release8",
+      "regenie_annotations": [
+        {
+          "name": "regulatory",
+          "mask_file": "gs://fc-secure-ba05a770-2a2e-4f6c-a34b-c7072ec4a469/wgs_annotations/v2024/masks_1_chr_{chr}_nodot.zst",
+          "annot_file": "gs://fc-secure-ba05a770-2a2e-4f6c-a34b-c7072ec4a469/wgs_annotations/v2024/annotations_regulatory_chr{chr}.zst",
+          "setlist_file": "gs://fc-secure-ba05a770-2a2e-4f6c-a34b-c7072ec4a469/wgs_annotations/v2024/set_list_chr{chr}.txt.zst"
+        },
+        {
+          "name": "coding_proximal",
+          "mask_file": "gs://fc-secure-ba05a770-2a2e-4f6c-a34b-c7072ec4a469/wgs_annotations/v2024/masks_2_chr_{chr}_nodot.zst",
+          "annot_file": "gs://fc-secure-ba05a770-2a2e-4f6c-a34b-c7072ec4a469/wgs_annotations/v2024/annotations_coding_proximal_chr{chr}.zst",
+          "setlist_file": "gs://fc-secure-ba05a770-2a2e-4f6c-a34b-c7072ec4a469/wgs_annotations/v2024/set_list_chr{chr}.txt.zst"
+        },
+        {
+          "name": "utr",
+          "mask_file": "gs://fc-secure-ba05a770-2a2e-4f6c-a34b-c7072ec4a469/wgs_annotations/v2024/masks_3_chr_{chr}_nodot.zst",
+          "annot_file": "gs://fc-secure-ba05a770-2a2e-4f6c-a34b-c7072ec4a469/wgs_annotations/v2024/annotations_utr_chr{chr}.zst",
+          "setlist_file": "gs://fc-secure-ba05a770-2a2e-4f6c-a34b-c7072ec4a469/wgs_annotations/v2024/set_list_chr{chr}.txt.zst"
+        }
+      ],
+      "cohort_sizes": {
+        "afr": 7500,
+        "amr": 7300,
+        "eur": 29703
+      }
+    }
+  },
+  "pheno_names": [
+    "hba1c"
+  ],
+  "trait_type": "Continuous",
+  "trait_transform": "RINT",
+  "chromosomes_to_run": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+    "21",
+    "22",
+    "X"
+  ],
+  "chromosomes_no_pgs": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+    "21",
+    "22",
+    "X"
+  ],
+  "local_run_path": "/home/jupyter/looping3/hba1c_v8_only_oldannot",
+  "run_prefix": "hba1c_v8_only_oldannot",
+  "cond_suffix": "run1",
+  "pgs_prefix": "not_used"
+}

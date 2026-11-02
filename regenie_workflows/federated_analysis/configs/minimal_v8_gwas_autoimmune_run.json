@@ -1,0 +1,309 @@
+{
+  "local_env": "aou",
+  "meta_analysis_config": {
+    "location": "aou",
+    "meta_workflow": "meta_analysis_discovery_aou",
+    "subset_workflow": "step0_subsetting_only_aou"
+  },
+  "cohorts": {
+    "aou": {
+      "workflows": {
+        "regenie_step1": "regenie_step1_scatter_aou",
+        "regenie_step2_singlevar": "regenie_step2_single_variants_aou",
+        "regenie_step2_aggregate": "regenie_step2_aggregates_aou",
+        "conditioning_singlevar": "regenie_conditioning_singles_aou",
+        "conditioning_aggregate": "regenie_conditioning_agg_aou"
+      },
+      "pheno_file": "gs://rw-migration-aou-rw-2b8a40e6/Regenie_phenotype/master_pheno_ethnicity_092226.txt.gz",
+      "cov_file": "gs://rw-migration-aou-rw-2b8a40e6/workspaces/geneticcontributions/master_covariates_093026.txt.gz",
+      "strata": [
+        "afr",
+        "amr",
+        "eas",
+        "eur",
+        "mid",
+        "sas"
+      ],
+      "cat_vars": "seq_center",
+      "step1_directory": "regenie_step1_output",
+      "root_results_directory": "wgs_analysis",
+      "pfile_template": "gs://cloned-rw-migration-aou-rw-43a6865c-wb-halcyon-shallot-1789/wgs_v8_pgens_genoqc/chr{chr}_genoqc_trimmed_merged",
+      "step1_input_template": "gs://cloned-rw-migration-aou-rw-43a6865c-wb-halcyon-shallot-1789/regenie_step1_input/{stratum}_step1_release8",
+      "cohort_sizes": {
+        "afr": 84000,
+        "amr": 79000,
+        "eas": 10000,
+        "eur": 234000,
+        "mid": 1500,
+        "sas": 5500
+      }
+    }
+  },
+  "pheno_names": [
+    "aitd_regenie_pheno.txt.gz",
+    "aspon_regenie_pheno.txt.gz",
+    "Celiac_regenie_pheno.txt.gz",
+    "ibd_regenie_pheno.txt.gz",
+    "ms_regenie_pheno.txt.gz",
+    "psor_regenie_pheno.txt.gz",
+    "rha_regenie_pheno.txt.gz",
+    "sle_regenie_pheno.txt.gz",
+    "t1d_regenie_pheno.txt.gz"
+  ],
+  "trait_type": "Binary",
+  "trait_transform": "RAW",
+  "chromosomes_to_run": [
+    "22"
+  ],
+  "local_run_path": "/home/jupyter/fedcat_runs/autoimmune",
+  "run_prefix": "autoimmune",
+  "step1_run_prefix": "autoimmune",
+  "singles_mac_threshold": 11,
+  "cond_engine": "mancojo",
+  "exclude_covars_dict": {
+    "1": [
+      "aitd_grs_chr1",
+      "aspon_grs_chr1",
+      "ibd_grs_chr1",
+      "msgrs_chr1",
+      "psor_grs_chr1",
+      "rha_grs_chr1",
+      "sle_grs_chr1",
+      "celiac_non_hla",
+      "t1dgrs2_non_hla"
+    ],
+    "2": [
+      "aitd_grs_chr2",
+      "aspon_grs_chr2",
+      "ibd_grs_chr2",
+      "msgrs_chr2",
+      "psor_grs_chr2",
+      "rha_grs_chr2",
+      "sle_grs_chr2",
+      "celiac_non_hla",
+      "t1dgrs2_non_hla"
+    ],
+    "3": [
+      "aitd_grs_chr3",
+      "aspon_grs_chr3",
+      "ibd_grs_chr3",
+      "msgrs_chr3",
+      "psor_grs_chr3",
+      "rha_grs_chr3",
+      "sle_grs_chr3",
+      "celiac_non_hla",
+      "t1dgrs2_non_hla"
+    ],
+    "4": [
+      "aitd_grs_chr4",
+      "aspon_grs_chr4",
+      "ibd_grs_chr4",
+      "msgrs_chr4",
+      "psor_grs_chr4",
+      "rha_grs_chr4",
+      "sle_grs_chr4",
+      "celiac_non_hla",
+      "t1dgrs2_non_hla"
+    ],
+    "5": [
+      "aitd_grs_chr5",
+      "aspon_grs_chr5",
+      "ibd_grs_chr5",
+      "msgrs_chr5",
+      "psor_grs_chr5",
+      "rha_grs_chr5",
+      "sle_grs_chr5",
+      "celiac_non_hla",
+      "t1dgrs2_non_hla"
+    ],
+    "6": [
+      "aitd_grs_chr6",
+      "aspon_grs_chr6",
+      "ibd_grs_chr6",
+      "msgrs_chr6",
+      "psor_grs_chr6",
+      "rha_grs_chr6",
+      "sle_grs_chr6",
+      "celiac_hla_drdq",
+      "celiac_hla_class_1",
+      "celiac_hla_class_2",
+      "t1dgrs2_hla_drdq",
+      "t1dgrs2_hla_class_1",
+      "t1dgrs2_hla_class_2",
+      "ms_hla_grs",
+      "hla_b27_flag_aspon"
+    ],
+    "7": [
+      "aitd_grs_chr7",
+      "aspon_grs_chr7",
+      "ibd_grs_chr7",
+      "msgrs_chr7",
+      "psor_grs_chr7",
+      "rha_grs_chr7",
+      "sle_grs_chr7",
+      "celiac_non_hla",
+      "t1dgrs2_non_hla"
+    ],
+    "8": [
+      "aitd_grs_chr8",
+      "aspon_grs_chr8",
+      "ibd_grs_chr8",
+      "msgrs_chr8",
+      "psor_grs_chr8",
+      "rha_grs_chr8",
+      "sle_grs_chr8",
+      "celiac_non_hla",
+      "t1dgrs2_non_hla"
+    ],
+    "9": [
+      "aitd_grs_chr9",
+      "aspon_grs_chr9",
+      "ibd_grs_chr9",
+      "msgrs_chr9",
+      "psor_grs_chr9",
+      "rha_grs_chr9",
+      "sle_grs_chr9",
+      "celiac_non_hla",
+      "t1dgrs2_non_hla"
+    ],
+    "10": [
+      "aitd_grs_chr10",
+      "aspon_grs_chr10",
+      "ibd_grs_chr10",
+      "msgrs_chr10",
+      "psor_grs_chr10",
+      "rha_grs_chr10",
+      "sle_grs_chr10",
+      "celiac_non_hla",
+      "t1dgrs2_non_hla"
+    ],
+    "11": [
+      "aitd_grs_chr11",
+      "aspon_grs_chr11",
+      "ibd_grs_chr11",
+      "msgrs_chr11",
+      "psor_grs_chr11",
+      "rha_grs_chr11",
+      "sle_grs_chr11",
+      "celiac_non_hla",
+      "t1dgrs2_non_hla"
+    ],
+    "12": [
+      "aitd_grs_chr12",
+      "aspon_grs_chr12",
+      "ibd_grs_chr12",
+      "msgrs_chr12",
+      "psor_grs_chr12",
+      "rha_grs_chr12",
+      "sle_grs_chr12",
+      "celiac_non_hla",
+      "t1dgrs2_non_hla"
+    ],
+    "13": [
+      "aitd_grs_chr13",
+      "ibd_grs_chr13",
+      "msgrs_chr13",
+      "psor_grs_chr13",
+      "rha_grs_chr13",
+      "sle_grs_chr13",
+      "celiac_non_hla",
+      "t1dgrs2_non_hla"
+    ],
+    "14": [
+      "aitd_grs_chr14",
+      "ibd_grs_chr14",
+      "msgrs_chr14",
+      "psor_grs_chr14",
+      "rha_grs_chr14",
+      "sle_grs_chr14",
+      "celiac_non_hla",
+      "t1dgrs2_non_hla"
+    ],
+    "15": [
+      "aitd_grs_chr15",
+      "aspon_grs_chr15",
+      "ibd_grs_chr15",
+      "msgrs_chr15",
+      "psor_grs_chr15",
+      "rha_grs_chr15",
+      "sle_grs_chr15",
+      "celiac_non_hla",
+      "t1dgrs2_non_hla"
+    ],
+    "16": [
+      "aitd_grs_chr16",
+      "aspon_grs_chr16",
+      "ibd_grs_chr16",
+      "msgrs_chr16",
+      "psor_grs_chr16",
+      "rha_grs_chr16",
+      "sle_grs_chr16",
+      "celiac_non_hla",
+      "t1dgrs2_non_hla"
+    ],
+    "17": [
+      "aitd_grs_chr17",
+      "aspon_grs_chr17",
+      "ibd_grs_chr17",
+      "msgrs_chr17",
+      "psor_grs_chr17",
+      "rha_grs_chr17",
+      "sle_grs_chr17",
+      "celiac_non_hla",
+      "t1dgrs2_non_hla"
+    ],
+    "18": [
+      "aitd_grs_chr18",
+      "aspon_grs_chr18",
+      "ibd_grs_chr18",
+      "msgrs_chr18",
+      "psor_grs_chr18",
+      "rha_grs_chr18",
+      "sle_grs_chr18",
+      "celiac_non_hla",
+      "t1dgrs2_non_hla"
+    ],
+    "19": [
+      "aitd_grs_chr19",
+      "aspon_grs_chr19",
+      "ibd_grs_chr19",
+      "msgrs_chr19",
+      "psor_grs_chr19",
+      "rha_grs_chr19",
+      "sle_grs_chr19",
+      "celiac_non_hla",
+      "t1dgrs2_non_hla"
+    ],
+    "20": [
+      "aitd_grs_chr20",
+      "ibd_grs_chr20",
+      "msgrs_chr20",
+      "psor_grs_chr20",
+      "rha_grs_chr20",
+      "sle_grs_chr20",
+      "celiac_non_hla",
+      "t1dgrs2_non_hla"
+    ],
+    "21": [
+      "aitd_grs_chr21",
+      "aspon_grs_chr21",
+      "ibd_grs_chr21",
+      "msgrs_chr21",
+      "psor_grs_chr21",
+      "rha_grs_chr21",
+      "celiac_non_hla",
+      "t1dgrs2_non_hla"
+    ],
+    "22": [
+      "aitd_grs_chr22",
+      "aspon_grs_chr22",
+      "ibd_grs_chr22",
+      "msgrs_chr22",
+      "psor_grs_chr22",
+      "rha_grs_chr22",
+      "sle_grs_chr22",
+      "celiac_non_hla",
+      "t1dgrs2_non_hla"
+    ]
+  }
+}

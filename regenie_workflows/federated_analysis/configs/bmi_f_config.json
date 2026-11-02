@@ -1,0 +1,86 @@
+{
+  "local_env": "aou",
+  "meta_analysis_config": {
+    "location": "aou",
+    "meta_workflow": "meta_analysis_discovery_aou.wdl",
+    "subset_workflow": "step0_subsetting_only_aou.wdl"
+  },
+  "cohorts": {
+    "aou": {
+      "workflows": {
+        "regenie_step1": "regenie_step1_scatter_aou.wdl",
+        "regenie_step2_singlevar": "regenie_step2_single_variants_aou.wdl",
+        "regenie_step2_aggregate": "regenie_step2_aggregates_aou.wdl",
+        "conditioning_singlevar": "regenie_conditioning_singles_aou.wdl",
+        "conditioning_aggregate": "regenie_conditioning_agg_aou.wdl"
+      },
+      "pheno_file": "fc-secure-c14bdbd4-4de5-432d-be63-71c0ae8b8939/pheno_covs/bmi_calc_pheno_f.tsv.gz",
+      "cov_file": "fc-secure-c14bdbd4-4de5-432d-be63-71c0ae8b8939/pheno_covs/bmi_calc_covs_with_pgs_f.tsv.gz",
+      "cond_file": "fc-secure-c14bdbd4-4de5-432d-be63-71c0ae8b8939/pgs_correction/BMI_old_pgs_variants",
+      "strata": [
+        "afr",
+        "amr",
+        "eas",
+        "eur",
+        "mid",
+        "sas"
+      ],
+      "cat_vars": "seq_center",
+      "step1_directory": "regenie_step1_output",
+      "root_results_directory": "wgs_analysis2/v2026.2",
+      "pfile_template": "wgs_v8_pgens_genoqc/chr{chr}_genoqc_trimmed_merged",
+      "step1_input_template": "regenie_step1_input/regenie_step1_{stratum}",
+      "regenie_annotations": [],
+      "cohort_sizes": {
+        "afr": 84000,
+        "amr": 79000,
+        "eas": 10000,
+        "eur": 234000,
+        "mid": 1500,
+        "sas": 5500
+      }
+    },
+    "ukb": {
+      "workflows": {
+        "regenie_step1": "applet-J6y0p70JVJzv1jqFxqfzJxVk",
+        "regenie_step2_singlevar": "applet-J6y0pJ0JVJzfk9bQzb98b5PF",
+        "regenie_step2_aggregate": "applet-J6yXqFQJVJzZzkKqj580JXpx",
+        "conditioning_singlevar": "applet-J6yXf30JVJzyzpgxYfPV1qvQ",
+        "conditioning_aggregate": "applet-J6yXbzjJVJzZ1x5k2GBV5k7g"
+      },
+      "pheno_file": "file-J3gkb90JVJzv44fyP1x5g6zk",
+      "cov_file": "file-J3gkbB8JVJzQ2YpFQ20BYGPV",
+      "cond_file": "file-GqPV8FQJVJzvGxkJg3V8gkFy",
+      "strata": [
+        "afr",
+        "eur",
+        "sas"
+      ],
+      "cat_vars": "centre,sequencing_centre",
+      "step1_directory": "regenie_step1_output",
+      "root_results_directory": "wgs_analysis2/v2026.2",
+      "pfile_template": "500k_wgs_pgens/dragenml_genoqc_pgens/chr{chr}_trimmed_merged_nofail",
+      "step1_input_template": "regenie_step1_input/regenie_step1_{stratum}",
+      "regenie_annotations": [],
+      "cohort_sizes": {
+        "afr": 10000,
+        "eur": 460000,
+        "sas": 10000
+      }
+    }
+  },
+  "pheno_names": [
+    "bmi_f"
+  ],
+  "trait_type": "Continuous",
+  "trait_transform": "RINT",
+  "chromosomes_to_run": [
+    "18"
+  ],
+  "chromosomes_no_pgs": [],
+  "local_run_path": "/home/jupyter/bmi_discov/bmi_sexsplit_f",
+  "run_prefix": "bmi_sexsplit_f",
+  "cond_suffix": "run1",
+  "pgs_prefix": "BMI_SCORE_CHR",
+  "meta_regenie_annotations": []
+}

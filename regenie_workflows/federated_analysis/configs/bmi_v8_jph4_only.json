@@ -1,0 +1,75 @@
+{
+  "local_env": "aou",
+  "meta_analysis_config": {
+    "location": "aou",
+    "meta_workflow": "meta_analysis_discovery_aou",
+    "subset_workflow": "step0_subsetting_only_aou",
+    "regenie_annotations": [
+      {
+        "name": "jph4",
+        "mask_file": "gs://rw-migration-aou-rw-728aa6c7/bmi_figure_data/jph4_exons/jph4_hc_lof_per_exon_mask.zst",
+        "annot_file": "gs://rw-migration-aou-rw-728aa6c7/bmi_figure_data/jph4_exons/jph4_hc_lof_per_exon_annots.zst",
+        "setlist_file": "gs://rw-migration-aou-rw-728aa6c7/bmi_figure_data/jph4_exons/jph4_hc_lof_per_exon_setlist.zst"
+      }
+    ]
+  },
+  "cohorts": {
+    "aou": {
+      "workflows": {
+        "regenie_step1": "regenie_step1_scatter_aou",
+        "regenie_step2_singlevar": "regenie_step2_single_variants_aou",
+        "regenie_step2_aggregate": "regenie_step2_aggregates_aou",
+        "conditioning_singlevar": "regenie_conditioning_singles_aou",
+        "conditioning_aggregate": "regenie_conditioning_agg_aou"
+      },
+      "pheno_file": "gs://rw-migration-aou-rw-728aa6c7/pheno_covs/bmi_calc_pheno.tsv.gz",
+      "cov_file": "gs://rw-migration-aou-rw-728aa6c7/pheno_covs/bmi_calc_covs_with_pgs.tsv.gz",
+      "cond_file": "gs://rw-migration-aou-rw-728aa6c7/pgs_correction/BMI_old_pgs_variants",
+      "strata": [
+        "afr",
+        "amr",
+        "eas",
+        "eur",
+        "mid",
+        "sas"
+      ],
+      "cat_vars": "seq_center",
+      "step1_directory": "regenie_step1_output",
+      "root_results_directory": "bmi_figure_data/jph4_exons",
+      "pfile_template": "gs://pgen-bucket-wb-cordial-banana-2765/wgs_v9_pgens_genoqc/chr{chr}_genoqc_trimmed_merged",
+      "step1_input_template": "gs://cloned-rw-migration-aou-rw-43a6865c-wb-halcyon-shallot-1789/regenie_step1_input/{stratum}_step1_release8",
+      "regenie_annotations": [
+        {
+          "name": "jph4",
+          "mask_file": "gs://rw-migration-aou-rw-728aa6c7/bmi_figure_data/jph4_exons/jph4_hc_lof_per_exon_mask.zst",
+          "annot_file": "gs://rw-migration-aou-rw-728aa6c7/bmi_figure_data/jph4_exons/jph4_hc_lof_per_exon_annots.zst",
+          "setlist_file": "gs://rw-migration-aou-rw-728aa6c7/bmi_figure_data/jph4_exons/jph4_hc_lof_per_exon_setlist.zst"
+        }
+      ],
+      "cohort_sizes": {
+        "afr": 84000,
+        "amr": 79000,
+        "eas": 10000,
+        "eur": 234000,
+        "mid": 1500,
+        "sas": 5500
+      }
+    }
+  },
+  "pheno_names": [
+    "bmi"
+  ],
+  "trait_type": "Continuous",
+  "trait_transform": "RAW",
+  "chromosomes_to_run": [
+    "14"
+  ],
+  "chromosomes_no_pgs": ["X"],
+  "local_run_path": "/home/jupyter/looping/bmi",
+  "run_prefix": "bmi_jph4_only",
+  "step1_run_prefix": "bmi_focus_res",
+  "cond_suffix": "run1",
+  "pgs_prefix": "BMI_SCORE_CHR",
+  "aggregate_freqs": [0.0001, 0.001, 0.01],
+  "singles_mac_threshold": 1
+}

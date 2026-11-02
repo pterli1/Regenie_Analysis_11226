@@ -1,0 +1,105 @@
+{
+  "local_env": "aou",
+  "meta_analysis_config": {
+    "location": "aou",
+    "meta_workflow": "meta_analysis_discovery_aou",
+    "subset_workflow": "step0_subsetting_only_aou",
+    "regenie_annotations": [
+      {
+        "name": "regulatory",
+        "mask_file": "gs://cloned-rw-migration-aou-rw-43a6865c-wb-halcyon-shallot-1789/wgs_annotations/v2024/masks_1_chr_{chr}_nodot.zst",
+        "annot_file": "gs://cloned-rw-migration-aou-rw-43a6865c-wb-halcyon-shallot-1789/wgs_annotations/v2024/annotations_regulatory_chr{chr}.zst",
+        "setlist_file": "gs://cloned-rw-migration-aou-rw-43a6865c-wb-halcyon-shallot-1789/wgs_annotations/v2024/set_list_chr{chr}.txt.zst"
+      },
+      {
+        "name": "coding_proximal",
+        "mask_file": "gs://cloned-rw-migration-aou-rw-43a6865c-wb-halcyon-shallot-1789/wgs_annotations/v2024/masks_2_chr_{chr}_nodot.zst",
+        "annot_file": "gs://cloned-rw-migration-aou-rw-43a6865c-wb-halcyon-shallot-1789/wgs_annotations/v2024/annotations_coding_proximal_chr{chr}.zst",
+        "setlist_file": "gs://cloned-rw-migration-aou-rw-43a6865c-wb-halcyon-shallot-1789/wgs_annotations/v2024/set_list_chr{chr}.txt.zst"
+      },
+      {
+        "name": "utr",
+        "mask_file": "gs://cloned-rw-migration-aou-rw-43a6865c-wb-halcyon-shallot-1789/wgs_annotations/v2024/masks_3_chr_{chr}_nodot.zst",
+        "annot_file": "gs://cloned-rw-migration-aou-rw-43a6865c-wb-halcyon-shallot-1789/wgs_annotations/v2024/annotations_utr_chr{chr}.zst",
+        "setlist_file": "gs://cloned-rw-migration-aou-rw-43a6865c-wb-halcyon-shallot-1789/wgs_annotations/v2024/set_list_chr{chr}.txt.zst"
+      }
+    ]
+  },
+  "cohorts": {
+    "aou": {
+      "workflows": {
+        "regenie_step1": "regenie_step1_scatter_aou",
+        "regenie_step2_singlevar": "regenie_step2_single_variants_aou",
+        "regenie_step2_aggregate": "regenie_step2_aggregates_aou",
+        "conditioning_singlevar": "regenie_conditioning_singles_aou",
+        "conditioning_aggregate": "regenie_conditioning_agg_aou"
+      },
+      "workflow_backend": "local_cromwell",
+      "pheno_file": "gs://rw-migration-aou-rw-53c15d7e/phenotype/t2d_broad/T2D_Broad_PHENO.tsv",
+      "cov_file": "gs://rw-migration-aou-rw-53c15d7e/phenotype/t2d_broad/T2D_Broad_COVARS.tsv",
+      "cond_file": "gs://rw-migration-aou-rw-53c15d7e/pgs_correction/T2D_Suzuki_variants",
+      "strata": [
+        "afr",
+        "amr",
+        "eas",
+        "eur",
+        "sas"
+      ],
+      "cat_vars": "seq_center",
+      "step1_directory": "regenie_step1_output",
+      "root_results_directory": "wgs_analysis",
+      "pfile_template": "gs://cloned-rw-migration-aou-rw-43a6865c-wb-halcyon-shallot-1789/wgs_v8_pgens_genoqc/chr{chr}_genoqc_trimmed_merged",
+      "step1_input_template": "gs://cloned-rw-migration-aou-rw-43a6865c-wb-halcyon-shallot-1789/regenie_step1_input/{stratum}_step1_release8",
+      "regenie_annotations": [
+        {
+          "name": "regulatory",
+          "mask_file": "gs://cloned-rw-migration-aou-rw-43a6865c-wb-halcyon-shallot-1789/wgs_annotations/v2024/masks_1_chr_{chr}_nodot.zst",
+          "annot_file": "gs://cloned-rw-migration-aou-rw-43a6865c-wb-halcyon-shallot-1789/wgs_annotations/v2024/annotations_regulatory_chr{chr}.zst",
+          "setlist_file": "gs://cloned-rw-migration-aou-rw-43a6865c-wb-halcyon-shallot-1789/wgs_annotations/v2024/set_list_chr{chr}.txt.zst"
+        },
+        {
+          "name": "coding_proximal",
+          "mask_file": "gs://cloned-rw-migration-aou-rw-43a6865c-wb-halcyon-shallot-1789/wgs_annotations/v2024/masks_2_chr_{chr}_nodot.zst",
+          "annot_file": "gs://cloned-rw-migration-aou-rw-43a6865c-wb-halcyon-shallot-1789/wgs_annotations/v2024/annotations_coding_proximal_chr{chr}.zst",
+          "setlist_file": "gs://cloned-rw-migration-aou-rw-43a6865c-wb-halcyon-shallot-1789/wgs_annotations/v2024/set_list_chr{chr}.txt.zst"
+        },
+        {
+          "name": "utr",
+          "mask_file": "gs://cloned-rw-migration-aou-rw-43a6865c-wb-halcyon-shallot-1789/wgs_annotations/v2024/masks_3_chr_{chr}_nodot.zst",
+          "annot_file": "gs://cloned-rw-migration-aou-rw-43a6865c-wb-halcyon-shallot-1789/wgs_annotations/v2024/annotations_utr_chr{chr}.zst",
+          "setlist_file": "gs://cloned-rw-migration-aou-rw-43a6865c-wb-halcyon-shallot-1789/wgs_annotations/v2024/set_list_chr{chr}.txt.zst"
+        }
+      ],
+      "cohort_sizes": {
+        "afr": 84000,
+        "amr": 79000,
+        "eas": 10000,
+        "eur": 234000,
+        "mid": 1500,
+        "sas": 5500
+      }
+    }
+  },
+  "pheno_names": [
+    "T2D_EHRplus_BROAD"
+  ],
+  "trait_type": "Binary",
+  "trait_transform": "RAW",
+  "chromosomes_to_run": [
+    "7"
+  ],
+  "local_run_path": "/home/jupyter/fedcat_runs/t2d_mancojo_test4",
+  "run_prefix": "t2d_cond_test",
+  "step1_run_prefix": "T2D_EHRplus_BROAD",
+  "singles_mac_threshold": 11,
+  "pgs_prefix": "T2D_SCORE_CHR",
+  "chromosomes_no_pgs": [
+    "X"
+  ],
+  "cond_suffix": "mancojo_test4",
+  "cond_p_singles_retest": 1e-5,
+  "cond_p_singles_select": 1e-6,
+  "cond_p_agg_retest": 1e-4,
+  "cond_p_agg_select": 1e-5,
+  "cond_engine": "mancojo"
+}

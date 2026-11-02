@@ -1,0 +1,107 @@
+{
+  "local_env": "aou",
+  "meta_analysis_config": {
+    "location": "aou",
+    "meta_workflow": "meta_analysis_discovery_aou",
+    "subset_workflow": "step0_subsetting_only_aou"
+  },
+  "cohorts": {
+    "aou": {
+      "workflows": {
+        "regenie_step1": "regenie_step1_scatter_aou",
+        "regenie_step2_singlevar": "regenie_step2_single_variants_aou",
+        "regenie_step2_aggregate": "regenie_step2_aggregates_aou",
+        "conditioning_singlevar": "regenie_conditioning_singles_aou",
+        "conditioning_aggregate": "regenie_conditioning_agg_aou",
+        "resources": {
+          "regenie_step1": {"n_cpu": 4, "mem_gb": 16, "disk": "350 SSD"},
+          "regenie_step2_singlevar": {"n_cpu": 4, "mem_gb": 16, "disk": "200 SSD"},
+          "regenie_step2_aggregate": {"n_cpu": 4, "mem_gb": 16, "disk": "200 SSD"},
+          "meta_workflow": {"n_cpu": 8, "mem_gb": 64, "disk": "400 SSD"},
+          "conditioning_singlevar": {"n_cpu": 4, "mem_gb": 16, "disk": "100 SSD"},
+          "conditioning_aggregate": {"n_cpu": 4, "mem_gb": 32, "disk": "100 SSD"}
+        }
+      },
+      "workflow_backend": "local_cromwell",
+      "max_tasks_per_workflow": 4000,
+      "max_concurrent_jobs": 10,
+      "pheno_file": "gs://proteomics-data-wb-cordial-broccoli-3576/pwas_data/shared_data/Olink_all_ancestry_qced_NPX.regenie_format.phenotype.tsv.gz",
+      "cov_file": "gs://pgen-bucket-wb-cordial-banana-2765/auxiliary_data/filtered_samples_basic_covs.tsv.gz",
+      "strata": [
+        "afr",
+        "amr",
+        "eas",
+        "eur",
+        "mid",
+        "sas"
+      ],
+      "cat_vars": "seq_center,sequencer_type",
+      "step1_directory": "regenie_step1_output",
+      "root_results_directory": "pwas_results",
+      "pfile_template": "gs://pgen-bucket-wb-cordial-banana-2765/wgs_v9_pgens_genoqc/chr{chr}_genoqc_trimmed_merged",
+      "step1_input_template": "gs://pgen-bucket-wb-cordial-banana-2765/regenie_step1_input/{stratum}_step1_release9",
+      "cohort_sizes": {
+        "afr": 1623,
+        "amr": 2116,
+        "eas": 1389,
+        "eur": 2827,
+        "mid": 461,
+        "sas": 1203
+      }
+    }
+  },
+  "pheno_names": [
+    "AARSD1",
+    "ACE",
+    "ACOX1",
+    "ALDH3A1",
+    "ALYREF",
+    "AOC3",
+    "AP2B1",
+    "APOH",
+    "ARHGAP27",
+    "ARHGEF15",
+    "ASGR1",
+    "ASGR2",
+    "ASPSCR1",
+    "ATP1B2",
+    "ATP5PD",
+    "BAIAP2",
+    "BECN1",
+    "BLMH",
+    "BRIP1",
+    "C17orf50",
+    "C17orf99",
+    "C1QBP",
+    "C1QTNF1",
+    "CA4",
+    "CACNB1",
+    "CALCOCO2",
+    "CAMKK1",
+    "CANT1",
+    "CASC3",
+    "CASKIN2",
+    "CBX4",
+    "CCDC137",
+    "CCDC144CP",
+    "CCDC40",
+    "CCDC43",
+    "CCL1",
+    "CCL11",
+    "CCL13",
+    "CCL14"
+  ],
+  "trait_type": "Continuous",
+  "trait_transform": "RINT",
+  "chromosomes_to_run": [
+    "17"
+  ],
+  "local_run_path": "/home/jupyter/fedcat_runs/pwas_test_lc",
+  "run_prefix": "pwas_test_lc",
+  "step1_run_prefix": "pwas_test_lc",
+  "singles_mac_threshold": 11,
+  "step1_pheno_group_size": 20,
+  "step2_pheno_group_size": 250,
+  "max_step2_singles_block_length": 9999999999,
+  "max_step2_aggregates_block_length": 9999999999
+}

@@ -1,0 +1,148 @@
+{
+  "local_env": "aou",
+  "meta_analysis_config": {
+    "location": "aou",
+    "meta_workflow": "meta_analysis_discovery_aou.wdl",
+    "subset_workflow": "step0_subsetting_only_aou.wdl",
+    "regenie_annotations": []
+  },
+  "cohorts": {
+    "aou": {
+      "workflows": {
+        "regenie_step1": "regenie_step1_scatter_aou.wdl",
+        "regenie_step2_singlevar": "regenie_step2_single_variants_aou.wdl",
+        "regenie_step2_aggregate": "regenie_step2_aggregates_aou.wdl",
+        "conditioning_singlevar": "regenie_conditioning_singles_aou.wdl",
+        "conditioning_aggregate": "regenie_conditioning_agg_aou.wdl"
+      },
+      "pheno_file": "fc-secure-225c6d04-588b-4fa9-881f-c3360395a70a/marina/PCOS/GWAS_input/pheno_file_PCOS_simulation.tsv",
+      "cov_file": "fc-secure-225c6d04-588b-4fa9-881f-c3360395a70a/marina/PCOS/GWAS_input/covariate_file_PCOS_final_multi_ancestry_woCKD.tsv",
+      "strata": [
+        "afr",
+        "amr",
+        "eas",
+        "eur",
+        "sas"
+      ],
+      "cat_vars": "seq_center",
+      "step1_directory": "regenie_step1_output",
+      "root_results_directory": "WGS_Analysis",
+      "pfile_template": "wgs_v8_pgens_genoqc/chr{chr}_genoqc_trimmed_merged",
+      "step1_input_template": "regenie_step1_input/regenie_step1_{stratum}",
+      "regenie_annotations": [],
+      "cohort_sizes": {
+        "afr": 41667,
+        "amr": 46239,
+        "eas": 5949,
+        "eur": 118696,
+        "sas": 2638
+      }
+    },
+    "ukb": {
+      "workflows": {
+        "regenie_step1": "applet-J6y0p70JVJzv1jqFxqfzJxVk",
+        "regenie_step2_singlevar": "applet-J6y0pJ0JVJzfk9bQzb98b5PF",
+        "regenie_step2_aggregate": "applet-J6yXqFQJVJzZzkKqj580JXpx",
+        "conditioning_singlevar": "applet-J6yXf30JVJzyzpgxYfPV1qvQ",
+        "conditioning_aggregate": "applet-J6yXbzjJVJzZ1x5k2GBV5k7g"
+      },
+      "pheno_file": "file-J755bf0JVJzj60XFgP1zKFG7",
+      "cov_file": "file-J4fp940JVJzfZjBy78p3819j",
+      "strata": [
+        "eur",
+        "sas",
+        "afr"
+      ],
+      "cat_vars": "centre,sequencing_centre",
+      "step1_directory": "regenie_step1_output",
+      "root_results_directory": "WGS_Analysis",
+      "pfile_template": "500k_wgs_pgens/dragenml_genoqc_pgens/chr{chr}_trimmed_merged_nofail",
+      "step1_input_template": "regenie_step1_input/regenie_step1_{stratum}",
+      "regenie_annotations": [],
+      "cohort_sizes": {
+        "eur": 222897,
+        "sas": 4297,
+        "afr": 3942
+      }
+    }
+  },
+  "pheno_names": [
+    "PCOS_simulation_1",
+    "PCOS_simulation_2",
+    "PCOS_simulation_3",
+    "PCOS_simulation_4",
+    "PCOS_simulation_5",
+    "PCOS_simulation_6",
+    "PCOS_simulation_7",
+    "PCOS_simulation_8",
+    "PCOS_simulation_9",
+    "PCOS_simulation_10",
+    "PCOS_simulation_11",
+    "PCOS_simulation_12",
+    "PCOS_simulation_13",
+    "PCOS_simulation_14",
+    "PCOS_simulation_15",
+    "PCOS_simulation_16",
+    "PCOS_simulation_17",
+    "PCOS_simulation_18",
+    "PCOS_simulation_19",
+    "PCOS_simulation_20"
+  ],
+  "trait_type": "Binary",
+  "trait_transform": "RAW",
+  "chromosomes_to_run": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+    "21",
+    "22",
+    "X"
+  ],
+  "chromosomes_no_pgs": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+    "21",
+    "22",
+    "X"
+  ],
+  "local_run_path": "/home/jupyter/looping2/PCOS_simulation",
+  "run_prefix": "PCOS_simulation",
+  "cond_suffix": "run1",
+  "pgs_prefix": "XX_SCORE_CHR",
+  "coding_only": true
+}
